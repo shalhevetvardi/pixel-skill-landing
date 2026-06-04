@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
 
   <style>
     :root {
@@ -231,6 +232,13 @@
       box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 28px;
     }
 
+    .door-icon {
+      font-size: 1.5rem;
+      color: var(--mid-navy);
+      margin-bottom: 12px;
+      display: block;
+    }
+
     .door-card h3 {
       font-size: 1.1rem;
       font-weight: 700;
@@ -256,6 +264,13 @@
     .outcome-card:hover {
       transform: translateY(-3px);
       box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 20px;
+    }
+
+    .outcome-icon {
+      font-size: 1.3rem;
+      color: var(--teal);
+      margin-bottom: 10px;
+      display: block;
     }
 
     .outcome-card h4 {
@@ -432,10 +447,12 @@
 
       <div class="doors-grid">
         <div class="door-card reveal reveal-d1">
+          <i class="ph-bold ph-magnifying-glass door-icon"></i>
           <h3>יש לי עיצוב — תבדקי אותו</h3>
           <p>מדביקים עיצוב, קוד, או צילום מסך. פיקסל מאבחנת דפוסים גנריים, נותנת ניקוד, ומעצבת תיקונים קונקרטיים — לא רק מצביעה על בעיות.</p>
         </div>
         <div class="door-card reveal reveal-d2">
+          <i class="ph-bold ph-compass door-icon"></i>
           <h3>אין לי עיצוב — תני לי כיוון</h3>
           <p>3 שאלות, ובסוף — בסיס ויזואלי מוכן: צבעים, פונטים ומרווחים מותאמים למוצר שלכם. אנטי-גנרי מהיסוד.</p>
         </div>
@@ -451,14 +468,17 @@
 
       <div class="outcomes-grid">
         <div class="outcome-card reveal reveal-d1">
+          <i class="ph-bold ph-list-checks outcome-icon"></i>
           <h4>אבחון אנטי-גנרי</h4>
           <p>ניקוד לפי "רשימה שחורה" של דפוסי AI — צבעים, טיפו, לייאאוט ותוכן. כל סימן מוסבר.</p>
         </div>
         <div class="outcome-card reveal reveal-d2">
+          <i class="ph-bold ph-paint-brush outcome-icon"></i>
           <h4>עיצוב, לא הערות</h4>
           <p>"הכותרת 31px, הצבע #0E7C66, הרקע #f6f5f1". פיקסל מעצבת — לא מטיפה.</p>
         </div>
         <div class="outcome-card reveal reveal-d3">
+          <i class="ph-bold ph-palette outcome-icon"></i>
           <h4>כרטיס בסיס ויזואלי</h4>
           <p>פלטה (60/30/10), טיפוגרפיה, מרווחים — מותאם לרגש המוצר. מוכן לפיתוח.</p>
         </div>
