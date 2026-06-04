@@ -141,17 +141,18 @@
     .btn-dark {
       display: inline-block;
       padding: 13px 30px;
-      background: var(--mid-navy);
+      background: linear-gradient(135deg, var(--mid-navy), #2d1a6b);
       color: var(--white);
       font-size: 1rem;
       font-weight: 700;
       border-radius: 50px;
       transition: transform 0.2s, box-shadow 0.2s;
       text-decoration: none;
+      box-shadow: 0 2px 8px rgba(31, 19, 65, 0.2);
     }
     .btn-dark:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(31, 19, 65, 0.3);
+      box-shadow: 0 8px 24px rgba(31, 19, 65, 0.35), 0 0 12px rgba(103, 98, 255, 0.15);
     }
 
     .btn-outline {
@@ -224,6 +225,16 @@
       .section-navy { padding: 96px 0; }
     }
 
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 8px;
+    }
+
     .section-title {
       font-size: clamp(1.5rem, 3.5vw, 2.2rem);
       font-weight: 800;
@@ -251,12 +262,26 @@
       border-radius: 15px;
       padding: 32px 24px;
       box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 12px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .door-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pink), var(--purple), var(--teal));
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     .door-card:hover {
       transform: translateY(-4px);
-      box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 28px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 36px, rgba(103, 98, 255, 0.08) 0px 0px 20px;
+      border-color: rgba(103, 98, 255, 0.12);
     }
+    .door-card:hover::before { opacity: 1; }
 
     .door-icon {
       font-size: 1.5rem;
@@ -285,12 +310,25 @@
       background: var(--white);
       border-radius: 15px;
       padding: 28px 22px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .outcome-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(103, 98, 255, 0.06) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
     }
     .outcome-card:hover {
       transform: translateY(-3px);
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 20px;
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 24px;
     }
+    .outcome-card:hover::after { opacity: 1; }
 
     .outcome-icon {
       font-size: 1.3rem;
@@ -463,19 +501,21 @@
     }
     footer p { font-size: 0.8rem; color: var(--muted); }
 
-    /* ─── Scroll Reveal — subtle fade ─── */
+    /* ─── Scroll Reveal with blur ─── */
     .reveal {
       opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(14px);
+      filter: blur(3px);
+      transition: opacity 0.55s ease, transform 0.55s ease, filter 0.55s ease;
     }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
-    .reveal-d1 { transition-delay: 0.06s; }
-    .reveal-d2 { transition-delay: 0.12s; }
-    .reveal-d3 { transition-delay: 0.18s; }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
 
     /* ─── Mobile tweaks ─── */
     @media (max-width: 480px) {
@@ -526,6 +566,7 @@
   <!-- ═══ Two Doors ═══ -->
   <section class="section-white" id="how">
     <div class="wrap">
+      <span class="section-label reveal">איך זה עובד</span>
       <h2 class="section-title reveal">שתי דרכים לעבוד עם פיקסל</h2>
       <p class="section-sub reveal reveal-d1">בוחרים את מה שרלוונטי. שתי הדרכים מסתיימות בתוצר מוכן.</p>
 
@@ -547,6 +588,7 @@
   <!-- ═══ How to Use ═══ -->
   <section class="section-mint">
     <div class="wrap">
+      <span class="section-label reveal">דוגמאות</span>
       <h2 class="section-title reveal">איך משתמשים?</h2>
       <p class="section-sub reveal reveal-d1">פשוט מדברים עם Claude. פיקסל מזהה לבד מתי להיכנס.</p>
 
@@ -570,6 +612,7 @@
   <!-- ═══ What Pixel Creates ═══ -->
   <section class="section-white">
     <div class="wrap">
+      <span class="section-label reveal">התוצר</span>
       <h2 class="section-title reveal">מה פיקסל מייצרת עבורכם</h2>
       <p class="section-sub reveal reveal-d1">לא רק מצביעה על בעיות — מעצבת את הפתרון.</p>
 
@@ -652,8 +695,8 @@
     </div>
   </footer>
 
-  <!-- ═══ Scroll Reveal ═══ -->
   <script>
+    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -664,6 +707,15 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => io.observe(el));
+
+    // Card spotlight — cursor glow
+    document.querySelectorAll('.outcome-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    });
   </script>
 
 </body>
