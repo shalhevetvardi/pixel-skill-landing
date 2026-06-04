@@ -70,8 +70,17 @@
       justify-content: space-between;
       align-items: center;
     }
-    .nav-brand { display: flex; align-items: center; }
-    .nav-brand img { height: 34px; width: auto; }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand img { height: 32px; width: auto; }
+    .nav-brand span {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
     .nav-cta {
       display: inline-block;
       padding: 9px 22px;
@@ -179,6 +188,23 @@
       box-shadow: 0 6px 20px rgba(255, 215, 71, 0.5);
     }
 
+    /* ─── Hero decorative shapes ─── */
+    .hero-deco {
+      position: absolute;
+      border-radius: 6px;
+      transform: rotate(45deg);
+      opacity: 0.45;
+    }
+    .hero-deco-1 { width: 64px; height: 64px; background: var(--pink); top: 18%; left: 6%; }
+    .hero-deco-2 { width: 42px; height: 42px; background: var(--purple); bottom: 22%; left: 12%; }
+    .hero-deco-3 { width: 52px; height: 52px; background: var(--teal); top: 55%; left: 2%; }
+
+    @media (max-width: 768px) {
+      .hero-deco-1 { width: 36px; height: 36px; top: auto; bottom: 12%; left: 5%; }
+      .hero-deco-2 { width: 24px; height: 24px; bottom: 6%; left: 22%; }
+      .hero-deco-3 { width: 28px; height: 28px; top: 10%; left: auto; right: 8%; }
+    }
+
     /* ─── Wave ─── */
     .wave-divider {
       display: block;
@@ -280,6 +306,35 @@
       color: var(--navy);
     }
     .outcome-card p { font-size: 0.9rem; line-height: 1.7; }
+
+    /* ─── Usage Examples ─── */
+    .usage-examples {
+      display: grid;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .usage-examples { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .usage-example {
+      background: var(--white);
+      border-radius: 15px;
+      padding: 24px 20px;
+    }
+
+    .usage-q {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .usage-a {
+      font-size: 0.9rem;
+      color: var(--body-text);
+      line-height: 1.7;
+    }
 
     /* ─── Install ─── */
     .install-steps { max-width: 500px; }
@@ -414,7 +469,7 @@
   <!-- ═══ Nav ═══ -->
   <nav class="top-nav">
     <div class="wrap top-nav-inner">
-      <a href="https://aimprove.co.il" class="nav-brand"><img src="logo-aimprove-wide.png" alt="אִימפּרוּב"></a>
+      <a href="https://aimprove.co.il" class="nav-brand"><img src="mascot-blue.png" alt=""><span>אִימפּרוּב</span></a>
       <a href="https://wa.me/972515079762?text=אני רוצה לבדוק התאמה לטירונות סוכנים"
          class="nav-cta" target="_blank" rel="noopener">טירונות סוכנים</a>
     </div>
@@ -422,6 +477,9 @@
 
   <!-- ═══ Hero ═══ -->
   <section class="hero">
+    <div class="hero-deco hero-deco-1"></div>
+    <div class="hero-deco hero-deco-2"></div>
+    <div class="hero-deco hero-deco-3"></div>
     <div class="wrap">
       <div class="hero-content">
         <h1>העיצוב שלך נראה כמו AI?<br>פיקסל תתקן את זה.</h1>
@@ -460,8 +518,31 @@
     </div>
   </section>
 
-  <!-- ═══ What Pixel Creates ═══ -->
+  <!-- ═══ How to Use ═══ -->
   <section class="section-mint">
+    <div class="wrap">
+      <h2 class="section-title reveal">איך משתמשים?</h2>
+      <p class="section-sub reveal reveal-d1">פשוט מדברים עם Claude. פיקסל מזהה לבד מתי להיכנס.</p>
+
+      <div class="usage-examples">
+        <div class="usage-example reveal reveal-d1">
+          <p class="usage-q">״תבדקי לי את העיצוב הזה״</p>
+          <p class="usage-a">מדביקים קוד HTML, צילום מסך, או תיאור — ופיקסל נכנסת לפעולה.</p>
+        </div>
+        <div class="usage-example reveal reveal-d2">
+          <p class="usage-q">״תני לי כיוון עיצובי למוצר שלי״</p>
+          <p class="usage-a">פיקסל שואלת 3 שאלות קצרות ומחזירה כרטיס בסיס ויזואלי מוכן.</p>
+        </div>
+        <div class="usage-example reveal reveal-d3">
+          <p class="usage-q">״למה זה נראה גנרי?״</p>
+          <p class="usage-a">ניקוד + הסבר מדויק מה לשנות ולמה — עם קודי צבע וגדלים.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ What Pixel Creates ═══ -->
+  <section class="section-white">
     <div class="wrap">
       <h2 class="section-title reveal">מה פיקסל מייצרת עבורכם</h2>
       <p class="section-sub reveal reveal-d1">לא רק מצביעה על בעיות — מעצבת את הפתרון.</p>
