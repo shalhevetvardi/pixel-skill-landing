@@ -189,21 +189,50 @@
       box-shadow: 0 6px 20px rgba(255, 215, 71, 0.5);
     }
 
-    /* ─── Hero decorative shapes ─── */
+    /* ─── Hero decorative shapes — floating ─── */
     .hero-deco {
       position: absolute;
       border-radius: 6px;
       transform: rotate(45deg);
       opacity: 0.45;
     }
-    .hero-deco-1 { width: 64px; height: 64px; background: var(--pink); top: 18%; left: 6%; }
-    .hero-deco-2 { width: 42px; height: 42px; background: var(--purple); bottom: 22%; left: 12%; }
-    .hero-deco-3 { width: 52px; height: 52px; background: var(--teal); top: 55%; left: 2%; }
+    .hero-deco-1 {
+      width: 64px; height: 64px; background: var(--pink);
+      top: 18%; left: 6%;
+      animation: float1 6s ease-in-out infinite;
+    }
+    .hero-deco-2 {
+      width: 42px; height: 42px; background: var(--purple);
+      bottom: 22%; left: 12%;
+      animation: float2 7s ease-in-out infinite;
+    }
+    .hero-deco-3 {
+      width: 52px; height: 52px; background: var(--teal);
+      top: 55%; left: 2%;
+      animation: float3 8s ease-in-out infinite;
+    }
+
+    @keyframes float1 {
+      0%, 100% { transform: rotate(45deg) translate(0, 0); }
+      50% { transform: rotate(50deg) translate(8px, -12px); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: rotate(45deg) translate(0, 0); }
+      50% { transform: rotate(40deg) translate(-6px, 10px); }
+    }
+    @keyframes float3 {
+      0%, 100% { transform: rotate(45deg) translate(0, 0); }
+      50% { transform: rotate(52deg) translate(10px, 6px); }
+    }
 
     @media (max-width: 768px) {
       .hero-deco-1 { width: 36px; height: 36px; top: auto; bottom: 12%; left: 5%; }
       .hero-deco-2 { width: 24px; height: 24px; bottom: 6%; left: 22%; }
       .hero-deco-3 { width: 28px; height: 28px; top: 10%; left: auto; right: 8%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-deco { animation: none; }
     }
 
     /* ─── Wave ─── */
@@ -223,16 +252,6 @@
     @media (min-width: 768px) {
       .section-white, .section-mint { padding: 80px 0; }
       .section-navy { padding: 96px 0; }
-    }
-
-    .section-label {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--purple);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 8px;
     }
 
     .section-title {
@@ -566,7 +585,6 @@
   <!-- ═══ Two Doors ═══ -->
   <section class="section-white" id="how">
     <div class="wrap">
-      <span class="section-label reveal">איך זה עובד</span>
       <h2 class="section-title reveal">שתי דרכים לעבוד עם פיקסל</h2>
       <p class="section-sub reveal reveal-d1">בוחרים את מה שרלוונטי. שתי הדרכים מסתיימות בתוצר מוכן.</p>
 
@@ -588,7 +606,6 @@
   <!-- ═══ How to Use ═══ -->
   <section class="section-mint">
     <div class="wrap">
-      <span class="section-label reveal">דוגמאות</span>
       <h2 class="section-title reveal">איך משתמשים?</h2>
       <p class="section-sub reveal reveal-d1">פשוט מדברים עם Claude. פיקסל מזהה לבד מתי להיכנס.</p>
 
@@ -612,7 +629,6 @@
   <!-- ═══ What Pixel Creates ═══ -->
   <section class="section-white">
     <div class="wrap">
-      <span class="section-label reveal">התוצר</span>
       <h2 class="section-title reveal">מה פיקסל מייצרת עבורכם</h2>
       <p class="section-sub reveal reveal-d1">לא רק מצביעה על בעיות — מעצבת את הפתרון.</p>
 
