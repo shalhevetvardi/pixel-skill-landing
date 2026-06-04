@@ -240,7 +240,9 @@
 
     /* ─── Sections ─── */
     .section-white { background: var(--white); padding: 64px 0; }
+    .section-blue { background: var(--light-blue); padding: 64px 0; }
     .section-mint { background: var(--light-mint); padding: 64px 0; }
+    .section-gold-light { background: #FFF9E6; padding: 64px 0; }
     .section-navy { background: var(--mid-navy); padding: 72px 0; position: relative; overflow: hidden; }
 
     @media (min-width: 768px) {
@@ -274,11 +276,10 @@
       background: var(--white);
       border-radius: 15px;
       padding: 32px 24px;
-      box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      border: 1px solid transparent;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(36, 115, 200, 0.1);
     }
     .door-card::before {
       content: '';
@@ -286,15 +287,12 @@
       top: 0; left: 0; right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--pink), var(--purple), var(--teal));
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 0.7;
     }
     .door-card:hover {
       transform: translateY(-4px);
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 36px, rgba(103, 98, 255, 0.08) 0px 0px 20px;
-      border-color: rgba(103, 98, 255, 0.12);
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 36px;
     }
-    .door-card:hover::before { opacity: 1; }
 
     .door-icon {
       font-size: 1.5rem;
@@ -320,28 +318,16 @@
     }
 
     .outcome-card {
-      background: var(--white);
       border-radius: 15px;
       padding: 28px 22px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .outcome-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(103, 98, 255, 0.06) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
+      transition: transform 0.3s ease;
     }
     .outcome-card:hover {
       transform: translateY(-3px);
-      box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 24px;
     }
-    .outcome-card:hover::after { opacity: 1; }
+    .outcome-card:nth-child(1) { background: #EDE9FE; }
+    .outcome-card:nth-child(2) { background: #FDE8F0; }
+    .outcome-card:nth-child(3) { background: #E0F5ED; }
 
     .outcome-icon {
       font-size: 1.3rem;
@@ -577,7 +563,7 @@
   </svg>
 
   <!-- ═══ Two Doors ═══ -->
-  <section class="section-white" id="how">
+  <section class="section-blue" id="how">
     <div class="wrap">
       <h2 class="section-title reveal">שתי דרכים לעבוד עם פיקסל</h2>
       <p class="section-sub reveal reveal-d1">בוחרים את מה שרלוונטי. שתי הדרכים מסתיימות בתוצר מוכן.</p>
@@ -621,7 +607,7 @@
   </section>
 
   <!-- ═══ What Pixel Creates ═══ -->
-  <section class="section-white">
+  <section class="section-white" style="background: var(--white)">
     <div class="wrap">
       <h2 class="section-title reveal">מה פיקסל מייצרת עבורכם</h2>
       <p class="section-sub reveal reveal-d1">לא רק מצביעה על בעיות — מעצבת את הפתרון.</p>
@@ -647,7 +633,7 @@
   </section>
 
   <!-- ═══ Install + Download ═══ -->
-  <section class="section-white">
+  <section class="section-gold-light">
     <div class="wrap">
       <h2 class="section-title reveal">התקנה תוך דקה</h2>
 
@@ -718,14 +704,6 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => io.observe(el));
 
-    // Card spotlight — cursor glow
-    document.querySelectorAll('.outcome-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-      });
-    });
   </script>
 
 </body>
